@@ -17,6 +17,8 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Filament\Http\Responses\Auth\Contracts\LogoutResponse;
+use Illuminate\Http\RedirectResponse;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -54,4 +56,16 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ]);
     }
+
+    public function boot(): void
+{
+    $this->app->bind(LogoutResponse::class, function () {
+        return new class implements LogoutResponse {
+            public function toResponse($request): RedirectResponse
+            {
+                return redirect('/');
+            }
+        };
+    });
+}
 }
