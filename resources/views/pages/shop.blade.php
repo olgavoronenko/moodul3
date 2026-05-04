@@ -9,25 +9,30 @@
     </h1>
 
     <!-- SORT -->
-    <div class="flex flex-wrap items-center justify-center gap-3 mb-14 text-sm" id="sort-buttons">
-        <span class="text-gray-400 mr-2">SORT BY:</span>
+   <div class="flex flex-wrap items-center justify-center gap-3 mb-14 text-sm">
+    <span class="text-gray-400 mr-2">SORT BY:</span>
 
-        <button class="sort-btn px-4 py-1.5 rounded-full bg-purple-600 text-white" data-sort="popular">
-            Popular
-        </button>
+    <a href="{{ route('shop', ['sort' => 'popular']) }}"
+       class="sort-btn {{ $sort === 'popular' ? 'bg-purple-600 text-white' : 'border border-purple-500 text-purple-400' }}">
+        Popular
+    </a>
 
-        <button class="sort-btn px-4 py-1.5 rounded-full border border-purple-500 text-purple-400" data-sort="newest">
-            Newest
-        </button>
+    <a href="{{ route('shop', ['sort' => 'newest']) }}"
+       class="sort-btn {{ $sort === 'newest' ? 'bg-purple-600 text-white' : 'border border-purple-500 text-purple-400' }}">
+        Newest
+    </a>
 
-        <button class="sort-btn px-4 py-1.5 rounded-full border border-purple-500 text-purple-400" data-sort="price-asc">
-            Price: Low to High
-        </button>
+    <a href="{{ route('shop', ['sort' => 'price-asc']) }}"
+       class="sort-btn {{ $sort === 'price-asc' ? 'bg-purple-600 text-white' : 'border border-purple-500 text-purple-400' }}">
+        Price: Low to High
+    </a>
 
-        <button class="sort-btn px-4 py-1.5 rounded-full border border-purple-500 text-purple-400" data-sort="price-desc">
-            Price: High to Low
-        </button>
-    </div>
+    <a href="{{ route('shop', ['sort' => 'price-desc']) }}"
+       class="sort-btn {{ $sort === 'price-desc' ? 'bg-purple-600 text-white' : 'border border-purple-500 text-purple-400' }}">
+        Price: High to Low
+    </a>
+</div>
+
 
     <!-- PRODUCTS -->
     <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">

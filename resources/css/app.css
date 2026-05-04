@@ -51,6 +51,9 @@
                hover:text-white hover:bg-purple-600
                transition;
     }
+    .sort-btn {
+        @apply px-4 py-1.5 rounded-full font-semibold transition;
+    }
 }
 
 @layer utilities {
