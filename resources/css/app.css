@@ -61,4 +61,14 @@
         font-family: var(--font-orbitron);
     }
 }
+/* hide scrollbar (Chrome, Safari) */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* hide scrollbar (Firefox) */
+.no-scrollbar {
+    scrollbar-width: none;
+}
+
 
